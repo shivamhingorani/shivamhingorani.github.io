@@ -2,6 +2,15 @@
 window.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section');
 
+  // Simple validation test - ensure required sections exist
+  const requiredSections = ['hero', 'about', 'academic', 'professional', 'contact'];
+  requiredSections.forEach(id => {
+    const section = document.getElementById(id);
+    if (!section) {
+      console.warn(`Missing required section: ${id}`);
+    }
+  });
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
